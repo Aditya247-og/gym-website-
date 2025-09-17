@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JB Total Fitness</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header style="display: flex; justify-content: space-between;">
+    <h1>JB Total Fitness</h1>
+    <nav style="display: flex; gap: 15px;">
+        <a href="/">Home</a>
+      <a href="#about">About</a>
+      <a href="#coaches">Our Coaches</a>
+      <a href="#packages">Packages</a> <!-- ✅ Added Packages Link -->
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </header>
+
+
+  <!-- ✅ Packages -->
+  <section class="section hidden" id="packages">
+    <h2>Our Membership Packages</h2>
+    <div class="packages">
+      <div class="package-card">
+        <h3>Monthly Package</h3>
+        <p>₹1,200 per month</p>
+        <ul>
+          <li>Unlimited Gym Access</li>
+          <li>Personal Training Sessions</li>
+          <li>Diet & Nutrition Guidance</li>
+        </ul>
+      </div>
+
+      <div class="package-card">
+        <h3>Yearly Package</h3>
+        <p>₹12,000 per year</p>
+        <ul>
+          <li>Unlimited Gym Access</li>
+          <li>Personal Training + Special Workshops</li>
+          <li>Free Diet Consultation</li>
+          <li>Exclusive Fitness Events</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 JB Total Fitness | Designed with 💪</p>
+    <p>Website made by Aditya</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 👇 Add scroll animation for hidden sections
+    const hiddenSections = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target); // only animate once
+        }
+      });
+    }, { threshold: 0.2 });
+
+    hiddenSections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
